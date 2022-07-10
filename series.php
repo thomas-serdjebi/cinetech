@@ -5,7 +5,7 @@
     <title>Titre de la page</title>
     <link rel="stylesheet" href="style/header.css">
     <link rel="stylesheet" href="style/elements.css">
-    <script type="module" src="scripts/movies_script.js"></script>
+    <script type="module" src="scripts/series_script.js"></script>
     </head>
 
     <body>
@@ -14,12 +14,14 @@
 
         <main>
 
-            <?php require('sortby.php') ;?>
-            
-            <div id="tags"></div>
+            <?php require('sortby.php');?>
+
+    
+
+            <div id="container">
 
 
-            <div id="container"></div>
+            </div>
 
         </main>
     </body>
