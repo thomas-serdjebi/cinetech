@@ -1,4 +1,4 @@
-export default function showElements(element, title, id) {
+export default function showElements(element, title, id, detailLink) {
 
     function getColor(vote) {
         if(vote >= 8) {
@@ -17,7 +17,7 @@ export default function showElements(element, title, id) {
 
     const elementDiv = document.createElement('div');
     const link = document.createElement('a');
-    const elementLink = "details?element=" + element.id;
+    const elementLink = detailLink + element.id;
     link.href = elementLink;
     elementDiv.classList.add('movie');
     elementDiv.id=element.id;

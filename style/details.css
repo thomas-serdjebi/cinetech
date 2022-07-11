@@ -59,6 +59,7 @@ header.mb-4 {
 .card {
     border:4px 2px 4px 2px orange solid;
     border-color: orange;
+    width:100%;
 }
 
 #overview {
@@ -75,7 +76,7 @@ header.mb-4 {
 }
 
 .green {
-    color:green;
+    color:lightgreen;
 
 }
 
@@ -122,6 +123,22 @@ h3 {
     margin-bottom:11% !important;
 }
 
+.card-body {
+    padding: 3%;
+}
+
+.marginer {
+    margin: 1%;
+    width:23%;
+}
+
+.card-header{
+    font-weight:bold;
+}
+#informations {
+    padding-top:3.7%;
+}
+
 
 
 @media (min-width: 1200px) {
@@ -131,4 +148,14 @@ h3 {
     }
 
 }
+
+@media (max-width: 1200px) {
+    .marginer {
+        width:100%;
+    }
+}
+
+
+
+
 

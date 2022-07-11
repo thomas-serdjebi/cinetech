@@ -14,11 +14,7 @@
 
         <main>
 
-            <?php require('sortby.php');?>
-
-            <div id="tags"></div>
-
-            <div id="container"></div>
+           
 
         </main>
     </body>

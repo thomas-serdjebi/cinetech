@@ -28,13 +28,10 @@ window.addEventListener("DOMContentLoaded", (event) => {
 
                     let title = element.original_title;
                     let id = element.id;
-
+                    let detailLink = 'moviedetails?element=';
     
                     if (element.adult == false ) {
-                       
-                        
-                        showElements(element, title, id)
-                    
+                        showElements(element, title, id, detailLink)
                     }
                 })
 
@@ -45,8 +42,6 @@ window.addEventListener("DOMContentLoaded", (event) => {
                 container.append(message)
                 
             }
-
-
         })
     }
 
@@ -148,15 +143,9 @@ window.addEventListener("DOMContentLoaded", (event) => {
             break;
             case 'Most recent' : sortBy ="sort_by=release_date.desc&";
             break;
-            case 'Less recent' : sortBy ="sort_by=release_date.asc&";
-            break;
             case 'More popular' : sortBy ="sort_by=popularity.desc&";
             break;
-            case 'Less popular' : sortBy ="sort_by=popularity.asc&";
-            break;
             case 'Top rated' : sortBy ="sort_by=vote_average.desc&";
-            break;
-            case 'Less rated' : sortBy ="sort_by=vote_average.asc&";
             break;
 
         }
