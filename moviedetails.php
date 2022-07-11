@@ -1,11 +1,3 @@
-<?php
-
-require('processing/details_processing.php');
-
-
-
-?>
-
 <!doctype html>
 <html lang="fr">
     <head>
@@ -19,6 +11,7 @@ require('processing/details_processing.php');
     <script src="//cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" type="text/javascript"></script>
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" type="text/javascript"></script>
     <script type="module" src="scripts/movie_details_script.js"></script>
+    <script type="module" src="scripts/header_script.js"></script>
     </head>
 
     <body>
@@ -77,7 +70,8 @@ require('processing/details_processing.php');
 
                 <div class="white"><hr><h5>Similar movies belonging to the movie's categories</h5></div>
 
-                <div id="container"></div>
+                <div id="container" class='container'></div>
+
             </div>
 
 

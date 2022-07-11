@@ -1,4 +1,4 @@
-export default function showElements(element, title, id, detailLink) {
+export default function showElements(element, title, id, detailLink, container) {
 
     function getColor(vote) {
         if(vote >= 8) {
@@ -11,10 +11,7 @@ export default function showElements(element, title, id, detailLink) {
             
     }
 
-
     const imgUrl = "https://image.tmdb.org/t/p/w500";
-
-
     const elementDiv = document.createElement('div');
     const link = document.createElement('a');
     const elementLink = detailLink + element.id;
@@ -34,8 +31,6 @@ export default function showElements(element, title, id, detailLink) {
     elementImg.setAttribute('src', posterUrl);
     elementImg.setAttribute('alt', "image");
     elementDiv.appendChild(elementImg);
-
-
 
     const elementInfo = document.createElement('div');
     elementInfo.classList.add('movie-info');

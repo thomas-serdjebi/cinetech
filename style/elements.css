@@ -16,14 +16,17 @@ body {
 }
 
 
-#container{
+.container{
     display:flex;
     flex-wrap: wrap;
     justify-content: center;
+    
 }
 
 .movie {
-    width: 300px;
+    width:100%;
+    height:auto;
+    width: 220px;
     margin: 1rem;
     border-radius: 3px;
     box-shadow: 0.2px 4px 5pc rgba(0,0,0,0.1);
@@ -34,6 +37,7 @@ body {
 
 .movie img{
     width:100%;
+    
 }
 
 .movie-info {
@@ -43,6 +47,7 @@ body {
     justify-content: space-between;
     padding: 0.5rem 1rem 1rem;
     letter-spacing: 0.5px;
+    text-align:left;
 }
 
 .movie-info h3 {
@@ -54,6 +59,7 @@ body {
     padding: 0.25rem 0.5rem;
     border-radius: 3px;
     font-weight: bold;
+    font-size:0.7rem;
 }
 
 .movie-info span.green {
@@ -79,6 +85,7 @@ body {
     transform:translateY(101%);
     transition: transform 0.3s ease-in;
     color:black;
+    font-size:0.7rem;
 }
 
 .overview span.bold{

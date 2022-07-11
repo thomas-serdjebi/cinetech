@@ -29,7 +29,8 @@ window.addEventListener("DOMContentLoaded", (event) => {
                     let title = element.name;
                     let id = element.id
                     let detailLink = 'seriedetails?element=';
-                    showElements(element, title, id, detailLink)              
+                    let container = document.getElementById('container');
+                    showElements(element, title, id, detailLink, container)              
                 })
 
             } else {

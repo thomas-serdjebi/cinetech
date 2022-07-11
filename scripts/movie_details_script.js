@@ -108,12 +108,12 @@ window.addEventListener("DOMContentLoaded", (event) => {
         .then(response =>{
             
             response.results.forEach(result => {
-      
-                showElements(result, result.title, result.id);
+                let detailLink = 'moviedetails?element=';
+                let container = document.getElementById('container');
+                showElements(result, result.title, result.id, detailLink, container);
             })
 
             //Delete the movie double in the suggestions similar list
-
             let movieToDelete = document.getElementById(movieId)
             container.removeChild(movieToDelete);
         })     

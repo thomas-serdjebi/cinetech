@@ -15,9 +15,11 @@ window.addEventListener("DOMContentLoaded", (event) => {
 
     //SORT BY VARIABLES FOR URL
     const sortBySelector = document.getElementById('sort_by');
-    const container = document.getElementById('container');
+    
 
     function getMovies(url) {
+        
+        console.log(container)
 
         fetch(url)
         .then(response => response.json())
@@ -29,9 +31,10 @@ window.addEventListener("DOMContentLoaded", (event) => {
                     let title = element.original_title;
                     let id = element.id;
                     let detailLink = 'moviedetails?element=';
+                    let container = document.getElementById('container');
     
                     if (element.adult == false ) {
-                        showElements(element, title, id, detailLink)
+                        showElements(element, title, id, detailLink, container)
                     }
                 })
 

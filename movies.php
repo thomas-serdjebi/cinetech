@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="style/header.css">
     <link rel="stylesheet" href="style/elements.css">
     <script type="module" src="scripts/movies_script.js"></script>
+    <script type="module" src="scripts/header_script.js"></script>
     </head>
 
     <body>
@@ -19,7 +20,7 @@
             <div id="tags"></div>
 
 
-            <div id="container"></div>
+            <div class="container" id="container"></div>
 
         </main>
     </body>

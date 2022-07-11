@@ -1,11 +1,3 @@
-<?php
-
-require('processing/details_processing.php');
-
-
-
-?>
-
 <!doctype html>
 <html lang="fr">
     <head>
@@ -19,6 +11,8 @@ require('processing/details_processing.php');
     <script src="//cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" type="text/javascript"></script>
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" type="text/javascript"></script>
     <script type="module" src="scripts/serie_details_script.js"></script>
+    <script type="module" src="scripts/header_script.js"></script>
+
     </head>
 
     <body>
@@ -45,12 +39,13 @@ require('processing/details_processing.php');
                             <figure class="mb-4"><img class="img-fluid rounded" id="poster" alt="..." /></figure>
                             <!-- Post content-->
                             <section class="mb-5">
-                                <p class="fs-5 mb-4" id="overview">Overview</p>     
+                                <p class="fs-5 mb-4" id="overview">Overview</p>  
+                            </section>   
                         </article>
 
                     </div>
                     <!-- Side widgets-->
-                    <div class="col-lg-4" id="informations>
+                    <div class="col-lg-4" id="informations">
                         <!-- Categories widget-->
                         <div class="card mb-4 w-100" id="genres_bloc">
                             <div class="card-header" >Genres</div>
@@ -79,9 +74,14 @@ require('processing/details_processing.php');
 
                 </div>
 
-                <div class="white"><hr><h5>Similar series belonging to the movie's categories</h5></div>
+                <div>
 
-                <div id="container"></div>
+                    <div class="white"><hr><h5>Similar series belonging to the movie's categories</h5></div>
+
+                    <div id="container" class="container"></div>
+
+                </div>
+
             </div>
 
 

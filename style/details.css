@@ -139,12 +139,17 @@ h3 {
     padding-top:3.7%;
 }
 
+.marginer {
+    width:22%;
+    font-size:0.8rem !important;
+}
+
 
 
 @media (min-width: 1200px) {
 
     .container, .container-lg container-md, .container-sm, .container-xl {
-        max-width: 1450px;
+        max-width: 1200px;
     }
 
 }
