@@ -144,7 +144,29 @@ h3 {
     font-size:0.8rem !important;
 }
 
+#addtofav {
+    background-color: orange !important;
+    border : white;
+    font-weight:bold;
+} 
 
+#delfromfav {
+    background-color: red !important;
+    border:white !important;
+    font-weight:bold;
+}
+
+
+#star {
+    width:40%;
+    position:relative;
+    right:0px;  
+}
+
+#fav_star {
+    text-align:right;
+    width:10%;
+}
 
 @media (min-width: 1200px) {
 

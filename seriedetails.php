@@ -1,8 +1,13 @@
+<?php
+require('processing/tvdetails_process.php');
+
+
+?>
 <!doctype html>
 <html lang="fr">
     <head>
     <meta charset="utf-8">
-    <title>Titre de la page</title>
+    <title>Serie detail</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="style/details.css">
     <link rel="stylesheet" href="style/header.css">
@@ -34,7 +39,14 @@
                                 <!-- Post meta content-->
                             </header>
                             <!-- Preview image figure-->
-                            <h4 class="fw-bolder mb-1" id="tagline">Tagline</h4>
+                            <div class="d-flex justify-content-between">
+                                <div><h4 class="fw-bolder mb-1" id="tagline">Tagline</h4></div>
+                                <?php if (isset($_SESSION['login'])){ 
+                                    if(in_array($serie, $fav_array, true)) { ?>
+                                        <div id="fav_star"><img src='assets/star.png' alt='star' id="star"></div>
+                                    <?php } 
+                                } ?>
+                            </div>
                             <br>
                             <figure class="mb-4"><img class="img-fluid rounded" id="poster" alt="..." /></figure>
                             <!-- Post content-->
@@ -66,6 +78,29 @@
                             <div class="card-body"><div class="card-text">Production companies : <ul id="production_companies"></ul></div></div>
                             <div class="card-body"><div class="card-text">Spoken languages : <ul id="spoken_languages"></ul></div></div>
                         </div>
+
+                        <?php if (!isset($_SESSION['login'])) { ?>
+                            <div class="mb-4  w-75">
+                            <form method="get" id="form_addfav">
+                                <a href="addtofavtv?tv=<?php echo $serie ; ?>"><button type="button" class="btn btn-primary btn-lg btn-block" id="addtofavtv">Add to your favourites</button></a></form>
+                            </form>
+                        </div>
+                        <?php } else { ?>
+
+                        <?php if(!in_array($serie, $fav_array, true)){ ?>
+                        <div class="mb-4  w-75">
+                            <form method="get" id="form_addfav">
+                                <a href="addtofavtv?tv=<?php echo $serie ; ?>"><button type="button" class="btn btn-primary btn-lg btn-block" id="addtofav">Add to your favourites</button></a></form>
+                            </form>
+                        </div>
+                        <?php } else { ?>
+                            <div class="mb-4  w-75">
+                            <form method="get" id="form_delfav">
+                                <a href="delfromfavtv?tv=<?php echo $serie ; ?>"><button type="button" class="btn btn-primary btn-lg btn-block" id="delfromfav">Delete from your favourites</button></a></form>
+                            </form>
+                        </div>
+                        <?php }
+                        }?>
                     </div>
                 </div>
 

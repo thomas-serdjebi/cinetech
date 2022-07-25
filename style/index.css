@@ -1,0 +1,31 @@
+* {
+    box-sizing: border-box;
+}
+
+:root{
+    --primary-color:#22254b;
+    --secondary-color:#373b69;
+}
+
+body {
+    background-color: var(--primary-color);
+    font-family : 'Poppins', sans-serif;
+    margin: 0;
+    color:white;
+}
+
+.title3 {
+    color: orange;
+    font-weight:bold;
+}
+
+#forms_container {
+    margin-top:10%;
+}
+
+
+.orange {
+    color: orange !important;
+    font-weight:bold;
+}
+

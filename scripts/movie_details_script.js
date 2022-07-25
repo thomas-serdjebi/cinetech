@@ -99,6 +99,8 @@ window.addEventListener("DOMContentLoaded", (event) => {
             spoken_languages.appendChild(li)
             
         })
+
+
     })
 
  
