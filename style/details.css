@@ -98,6 +98,12 @@ hr{
     border-color:white;
 }
 
+.note_and_title {
+    display:flex;
+    flex-direction:row;
+    justify-content:space-between;
+}
+
 h5 {
     text-align:center;
     font-size:2rem;

@@ -30,7 +30,7 @@ require('processing/moviedetails_process.php');
                         <!-- Post content-->
                         <article>
                             <!-- Post header-->
-                            <header class="mb-4">
+                            <header class="mb-4 note_and_title">
                                 <!-- Post title-->
                                 <h1 class="fw-bolder mb-1" id="title">Title</h1>
                                 <div class="text-muted fst-italic mb-2 white" id="vote_average"></div>
@@ -112,7 +112,9 @@ require('processing/moviedetails_process.php');
 
             </div>
 
-
         </main>
+
+        <?php require('footer.php');?>
+        
     </body>
 </html>

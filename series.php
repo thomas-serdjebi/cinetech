@@ -34,6 +34,9 @@ session_start();
             </div>
             <div class='message' id='message'></div>
         </main>
+
+        <?php require('footer.php');?>
+        
     </body>
 
 

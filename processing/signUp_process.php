@@ -18,20 +18,24 @@ if(isset($_POST['register'])){
     if(strlen($login)<6){
         $valid = false;
         $login = '';
+        $error_login = 'Your login must be at least 6 characters';
     } else if (preg_match('/[^A-Za-z0-9]/i', $login)) {
         $valid = false;
         $login = '';
+        $error_login = 'Your login can only contain numbers and letters';
     } else if (count($checking_login) != 0) {
         $valid = false;
         $login ='';
-        $error_signUp =" This login already exists.";
+        $error_login =" This login already exists.";
 
     }
 
     if(strlen($password)< 8) {
         $valid = false;
+        $error_password = "Your password must be at least 8 characters";
     } else if (!preg_match('/^(?=.*\d)(?=.*[@#\-_$%^&+=§!\?])(?=.*[a-z])(?=.*[A-Z])[0-9A-Za-z@#\-_$%^&+=§!\?]/',$password)){
         $valid = false;
+        $error_password = "Your password must have at least 1 uppercase letter, 1 lowercase letter and 1 special character";
     } else if ($password != $password_confirm) {
         $valid = false;
         $error_signUp = "Passwords don't match";

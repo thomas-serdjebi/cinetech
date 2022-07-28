@@ -56,7 +56,10 @@ require('processing/signUp_process.php');
                                     <div class="mb-4 conditions">
                                     <p class="mb-4 text-warning font-weight-bold" id="login_conditions">Your login must have at least 6 characters and only contain letters and numbers.</p>
                                     <p class="mb-4 text-warning font-weight-bold" id="password_conditions">Your password must have at least 8 caracters with at least 1 lower case letter, 1 upper case letter, 1 number and 1 special characters</p>
+                                    <p class="mb-4 text-danger font-weight-bold" id="password_conf_conditions"><?php if(isset($error_login)){ echo $error_login ; } ?></p>
+                                    <p class="mb-4 text-danger font-weight-bold" id="password_conf_conditions"><?php if(isset($error_password)){ echo $error_password ; } ?></p>
                                     <p class="mb-4 text-danger font-weight-bold" id="password_conf_conditions"><?php if(isset($error_signUp)){ echo $error_signUp ; } ?></p>
+
 
                                     </div>
 
@@ -112,6 +115,8 @@ require('processing/signUp_process.php');
 
 
         </main>
+
+        <?php require('footer.php');?>
 
     </body>
 </html>
