@@ -10,7 +10,6 @@ if(isset($_POST['register'])){
 
     if(empty($login) || empty($password) || empty($password_confirm)) {
         $valid = false;
-        echo "All fields must be filled in.";
     }
 
     $check_login = new Users();
@@ -19,34 +18,30 @@ if(isset($_POST['register'])){
     if(strlen($login)<6){
         $valid = false;
         $login = '';
-        echo "Login length must be at least 6 caracteres.";
     } else if (preg_match('/[^A-Za-z0-9]/i', $login)) {
         $valid = false;
         $login = '';
-        echo "Login can only contains letters and numbers";
     } else if (count($checking_login) != 0) {
         $valid = false;
         $login ='';
-        echo" This login already exists.";
+        $error_signUp =" This login already exists.";
 
     }
 
     if(strlen($password)< 8) {
         $valid = false;
-        echo "Your password must have at least 8 caracters";
     } else if (!preg_match('/^(?=.*\d)(?=.*[@#\-_$%^&+=§!\?])(?=.*[a-z])(?=.*[A-Z])[0-9A-Za-z@#\-_$%^&+=§!\?]/',$password)){
         $valid = false;
-        echo "Your password does not respect the conditions.";
     } else if ($password != $password_confirm) {
         $valid = false;
-        echo "Your passwords mismatched";
+        $error_signUp = "Passwords don't match";
     }
 
     if($valid == true) {
         $password = password_hash($password, PASSWORD_BCRYPT);
         $signUp = new Users();
         $signUp->signUp($login, $password);
-        header('Location:index.php?display=only_signin');
+        header('Location:userportal.php?display=only_signin');
     }
 
 }
@@ -59,7 +54,7 @@ if(isset($_POST['connect'])) {
 
     if (empty($login) || empty($password)) {
         $valid = false;
-        echo "All fields must be filled in";
+        $error = "All fields must be filled in.";
 
     }
 
@@ -67,7 +62,7 @@ if(isset($_POST['connect'])) {
         $signIn = new Users();
         $array = $signIn->signIn($login);
 
-        if($array) {
+        if(!empty($array)) {
 
             if (password_verify($password, $array[0]['password'])) {
                 $_SESSION['login'] = $login;
@@ -82,10 +77,11 @@ if(isset($_POST['connect'])) {
                     header('Location: index.php');
                 }
             } else {
-                echo "Your login or password is incorrect";
+                $error = "Your password is not correct.";
             }
 
-            echo $_SESSION['login'];
+        } else {
+            $error = "Your login doesn't exist.";
         }
         
 

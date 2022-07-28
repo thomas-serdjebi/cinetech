@@ -12,20 +12,23 @@ window.addEventListener("DOMContentLoaded", (event) => {
     let sortBy = 'sort_by=popularity.desc&';
     let series = seriesUrl + sortBy  + apiKey + pageUrl + i 
     let genreSelection='';
+    let results = '';
 
     //SORT BY VARIABLES FOR URL
     const sortBySelector = document.getElementById('sort_by');
     const container = document.getElementById('container');
 
-    function getMovies(url) {
+    function getSeries(url) {
 
         fetch(url)
         .then(response => response.json())
         .then(data => {
-            console.log(data)
+
+            results = data ;
 
             if (data.results.length !== 0 ) {
                 data.results.forEach(element => {
+
                     let title = element.name;
                     let id = element.id
                     let detailLink = 'seriedetails?element=';
@@ -33,22 +36,15 @@ window.addEventListener("DOMContentLoaded", (event) => {
                     showElements(element, title, id, detailLink, container)              
                 })
 
-            } else {
-                let message = document.createElement('div');
-                message.classList.add('message');
-                message.innerText = 'No series featuring the combination of the selected genres were found.'
-                container.append(message)
-                
-            }
-
-
+            } 
         })
+
+        return results;
     }
 
    for ( i = 1 ; i<=5 ; i++) {
         series = seriesUrl + sortBy  + apiKey + pageUrl + i
-        console.log(series)
-        getMovies(series);
+        getSeries(series);
     }
 
     const genresUrlApi = "https://api.themoviedb.org/3/genre/tv/list?";
@@ -58,32 +54,33 @@ window.addEventListener("DOMContentLoaded", (event) => {
     fetch(genresList)
     .then(response=>response.json())
     .then(response => {
-        let genres = response.genres;
 
+        let genres = response.genres;
         setGenre(genres)
 
         sortBySelector.addEventListener('change', ()=>{
-            sortByFunc();
-            setGenre(genres)
             
             container.innerHTML = '';
+            sortByFunc()
 
-            selectedGenre.forEach(genreSelection => {            
-                for(i=1 ; i<=5 ; i ++ ) {
-                    series = seriesUrl + sortBy + genresUrl + encodeURI(selectedGenre.join(',')) + '&' +  apiKey + pageUrl + i
-                    getMovies(series)
+            if(selectedGenre.length == 0) {
+                for (i=1; i<=5 ; i++) {
+                    series = seriesUrl + sortBy + apiKey + pageUrl + i
+                    getSeries(series)
                 }
-            })
+            } else {
+                for(i=1; i<=5; i ++){
+                    series = seriesUrl + sortBy + genresUrl + encodeURI(selectedGenre.join(',')) + '&' +  apiKey + pageUrl + i
+                    getSeries(series)
+                }
+            }
         })
     })
 
     function setGenre(genres){
   
         tags.innerHTML = '';
-
-        sortBySelector.addEventListener('change', () => {
-            sortByFunc();
-        })
+        sortByFunc();
 
         genres.forEach(genre => {
 
@@ -91,7 +88,6 @@ window.addEventListener("DOMContentLoaded", (event) => {
             tag.classList.add('tag');
             tag.id = genre.id;
             tag.innerText = genre.name;
-
             tags.append(tag);
 
             tag.addEventListener('click', () => {
@@ -115,10 +111,22 @@ window.addEventListener("DOMContentLoaded", (event) => {
 
                 for(i=1 ; i<=5 ; i ++ ) {
                     series = seriesUrl + sortBy + genresUrl + encodeURI(selectedGenre.join(',')) + '&' +  apiKey + pageUrl + i
-                    getMovies(series)
+                    getSeries(series)
+                }
+
+                let div = document.getElementById('message')
+                let message = 'No movies combining the categories you selected were found.'
+
+
+                if(results.results.length == 0 ) {
+                    //  container.innerHTML = '';
+                    div.innerText = message
                 }
   
-                
+                if (results.results.length != 0 ) {    
+                    div.innerText = '';
+                }
+
                 highlightSelection()
 
             })
@@ -128,8 +136,6 @@ window.addEventListener("DOMContentLoaded", (event) => {
     }
 
     function sortByFunc (){
-
-        container.innerHTML = '';
 
         switch(sortBySelector.value) {
             case 'From A to Z' : sortBy ="sort_by=original_title.asc&";

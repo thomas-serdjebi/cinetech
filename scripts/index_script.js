@@ -32,6 +32,57 @@ window.addEventListener("DOMContentLoaded", (event) => {
 
     }
 
+    //FORMS ERROR 
+
+    let fieldsCond = document.getElementById('fields_condition');
+    let loginCond = document.getElementById('login_conditions');
+    let passwordCond= document.getElementById('password_conditions');
+    let passwordConfCond= document.getElementById('password_conf_conditions');
+
+    let signUpLogin = document.getElementById('signuplogin');
+    let signUpPassword = document.getElementById('signuppassword');
+    let passwordConfirm = document.getElementById('passwordconfirm');
+
+    
+
+    signUpLogin.addEventListener('change', (event) => {
+        if (signUpLogin.value.length == 0 ) {
+            fieldsCond.className = ''
+            fieldsCond.classList.add('mb-4', 'text-danger', 'font-weight-bold')
+        } else if (signUpLogin.value.length <6 ) {
+            loginCond.className = ''
+            loginCond.classList.add('mb-4', 'text-danger', 'font-weight-bold')
+        } else if (signUpLogin.value.match(/[^A-Za-z0-9]/i)){
+            loginCond.className = ''
+            loginCond.classList.add('mb-4', 'text-danger', 'font-weight-bold')
+        } else {
+            loginCond.className = ''
+            loginCond.classList.add('mb-4', 'text-success', 'font-weight-bold')
+
+        }
+    })
+
+    signUpPassword.addEventListener('change', (event) => {
+        if (signUpPassword.value.length == 0 ) {
+            fieldsCond.className = ''
+            fieldsCond.classList.add('mb-4', 'text-danger', 'font-weight-bold')
+        } else if (signUpPassword.value.length < 8 ) {
+            passwordCond.className = ''
+            passwordCond.classList.add('mb-4', 'text-danger', 'font-weight-bold')
+        } else if (signUpPassword.value.length >= 8 && signUpPassword.value.match(/^(?=.*\d)(?=.*[@#\-_$%^&+=§!\?])(?=.*[a-z])(?=.*[A-Z])[0-9A-Za-z@#\-_$%^&+=§!\?]/)) {
+            passwordCond.className = ''
+            passwordCond.classList.add('mb-4', 'text-success', 'font-weight-bold')
+           
+        }
+    })
+
+
+
+
+
+
+    
+
     
 
     

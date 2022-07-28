@@ -14,18 +14,14 @@ body {
     color:white;
 }
 
-.title3 {
-    color: orange;
-    font-weight:bold;
-}
-
 #forms_container {
-    margin-top:10%;
+    margin-top:3%;
+}
+
+.conditions {
+    font-size: 0.7rem;
 }
 
 
-.orange {
-    color: orange !important;
-    font-weight:bold;
-}
+
 

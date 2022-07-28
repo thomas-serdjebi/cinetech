@@ -150,6 +150,13 @@ h3 {
     font-weight:bold;
 } 
 
+#addtofavtv {
+    background-color: orange !important;
+    border : white;
+    font-weight:bold;
+
+}
+
 #delfromfav {
     background-color: red !important;
     border:white !important;

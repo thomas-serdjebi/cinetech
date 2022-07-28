@@ -19,16 +19,18 @@ session_start();
 
         <main>
             <div class='main_container' id="message">
+
+                <div class='column' id='movies_results'>
+                    <div><h1>Movies results</h1></div>
+                    <div id='movie'></div>
+                </div>
                 <div class='column' id='series_results'>
                     <div><h1>Series results</h1></div>
                     <div id='tv'></div>
 
                 </div>
 
-                <div class='column' id='movies_results'>
-                    <div><h1>Movies results</h1></div>
-                    <div id='movie'></div>
-                </div>
+
             </div>
         </main>
     </body>
